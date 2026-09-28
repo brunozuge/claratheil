@@ -1,582 +1,261 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para a Clara 💗</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --rosa-claro: #ffe3ec;
-    --rosa-medio: #ffb6c9;
-    --rosa-forte: #ff8fab;
-    --pessego: #ffd9c2;
-    --lilas: #d9c9ff;
-    --dourado: #ffc857;
-    --texto: #7a4b57;
-    --branco: #fffaf9;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para a Clara ❤️</title>
 
-  * { box-sizing: border-box; }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+        body {
+            min-height: 100vh;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #071c16, #0b3327, #145c47);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
 
-  body {
-    font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(160deg, var(--rosa-claro) 0%, var(--pessego) 50%, var(--lilas) 100%);
-    background-size: 300% 300%;
-    animation: fundoOnda 12s ease infinite;
-    color: var(--texto);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 24px;
-    position: relative;
-  }
+        .container {
+            width: 100%;
+            max-width: 700px;
+            text-align: center;
+            padding: 45px 35px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.09);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            animation: aparecer 1.2s ease;
+        }
 
-  @keyframes fundoOnda {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
+        .coracao {
+            font-size: 65px;
+            animation: pulsar 1.5s infinite;
+            margin-bottom: 15px;
+        }
 
-  .coracao-flutuante {
-    position: fixed;
-    top: 100%;
-    font-size: 24px;
-    pointer-events: none;
-    opacity: 0.8;
-    user-select: none;
-    animation: subir linear forwards;
-    z-index: 0;
-  }
+        h1 {
+            font-size: 42px;
+            margin-bottom: 25px;
+            color: #b8ffe5;
+        }
 
-  @keyframes subir {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.9; }
-    90% { opacity: 0.9; }
-    100% { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
-  }
+        .texto {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #f1fff9;
+            margin-bottom: 25px;
+        }
 
-  .confete {
-    position: fixed;
-    top: -5%;
-    pointer-events: none;
-    z-index: 20;
-    animation: cair linear forwards;
-    user-select: none;
-  }
+        .destaque {
+            font-size: 24px;
+            color: #b8ffe5;
+            font-weight: bold;
+            margin: 25px 0;
+        }
 
-  @keyframes cair {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(110vh) rotate(360deg); opacity: 0.3; }
-  }
+        button {
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            background: #b8ffe5;
+            color: #083326;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-  .cartao {
-    position: relative;
-    z-index: 1;
-    background: var(--branco);
-    border-radius: 32px;
-    padding: 40px 36px;
-    max-width: 480px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(255, 143, 171, 0.35), 0 0 0 6px rgba(255, 255, 255, 0.6) inset;
-    border: 2px dashed var(--rosa-medio);
-    animation: entrada 0.9s cubic-bezier(.2,.9,.3,1.2) both;
-  }
+        button:hover {
+            transform: scale(1.07);
+            background: white;
+        }
 
-  @keyframes entrada {
-    0% { opacity: 0; transform: translateY(30px) scale(0.92); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
-  }
+        #mensagem {
+            margin-top: 25px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #dffff2;
+            display: none;
+            animation: aparecer 0.8s ease;
+        }
 
-  .selo {
-    display: inline-block;
-    background: var(--rosa-forte);
-    color: white;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 6px 16px;
-    border-radius: 999px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    box-shadow: 0 4px 10px rgba(255, 143, 171, 0.4);
-  }
+        .assinatura {
+            margin-top: 30px;
+            font-size: 17px;
+            color: #b8ffe5;
+            font-style: italic;
+        }
 
-  h1 {
-    font-family: 'Caveat', cursive;
-    font-size: 56px;
-    line-height: 1;
-    margin: 0 0 6px;
-    color: var(--rosa-forte);
-    text-shadow: 2px 2px 0 rgba(255,255,255,0.7);
-  }
+        .coracao-flutuante {
+            position: fixed;
+            bottom: -30px;
+            font-size: 22px;
+            animation: subir 5s linear forwards;
+            pointer-events: none;
+        }
 
-  .subtitulo {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--texto);
-    margin-bottom: 20px;
-    line-height: 1.5;
-  }
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-  /* --- painel de nivel / xp --- */
-  .painel-nivel {
-    background: linear-gradient(135deg, var(--rosa-claro), var(--pessego));
-    border-radius: 20px;
-    padding: 14px 18px;
-    margin-bottom: 22px;
-    border: 2px solid rgba(255,143,171,0.3);
-  }
+        @keyframes pulsar {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+        }
 
-  .linha-nivel {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 8px;
-  }
+        @keyframes subir {
+            from {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
 
-  .nome-nivel {
-    font-family: 'Caveat', cursive;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--rosa-forte);
-  }
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
 
-  .xp-texto {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--texto);
-    opacity: 0.75;
-  }
+            .container {
+                padding: 35px 22px;
+                border-radius: 25px;
+            }
 
-  .barra-fundo {
-    width: 100%;
-    height: 14px;
-    background: rgba(255,255,255,0.7);
-    border-radius: 999px;
-    overflow: hidden;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.08);
-  }
+            .coracao {
+                font-size: 52px;
+            }
 
-  .barra-preenchimento {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, var(--rosa-forte), var(--dourado));
-    border-radius: 999px;
-    transition: width 0.5s cubic-bezier(.3,.8,.4,1);
-  }
+            h1 {
+                font-size: 32px;
+            }
 
-  /* --- coração central --- */
-  .coracao-central {
-    font-size: 64px;
-    display: inline-block;
-    cursor: pointer;
-    animation: bater 1.4s ease-in-out infinite;
-    transition: transform 0.15s ease;
-    filter: drop-shadow(0 8px 18px rgba(255,143,171,0.5));
-    user-select: none;
-  }
+            .texto {
+                font-size: 16px;
+                line-height: 1.7;
+            }
 
-  .coracao-central:active {
-    transform: scale(1.3);
-  }
+            .destaque {
+                font-size: 21px;
+            }
 
-  @keyframes bater {
-    0%, 100% { transform: scale(1); }
-    15% { transform: scale(1.15); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.1); }
-    60% { transform: scale(1); }
-  }
-
-  .dica {
-    margin-top: 12px;
-    font-size: 13px;
-    color: var(--rosa-forte);
-    opacity: 0.8;
-    font-weight: 600;
-  }
-
-  .mensagem-extra {
-    margin-top: 16px;
-    font-family: 'Caveat', cursive;
-    font-size: 24px;
-    color: var(--rosa-forte);
-    min-height: 32px;
-    transition: opacity 0.3s ease;
-  }
-
-  .pontos-flutuante {
-    position: absolute;
-    font-family: 'Caveat', cursive;
-    font-weight: 700;
-    font-size: 22px;
-    color: var(--dourado);
-    pointer-events: none;
-    animation: subirPonto 1s ease-out forwards;
-    z-index: 5;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
-  }
-
-  @keyframes subirPonto {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-60px); opacity: 0; }
-  }
-
-  /* --- conquistas --- */
-  .titulo-conquistas {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--texto);
-    opacity: 0.6;
-    margin: 26px 0 12px;
-  }
-
-  .grade-conquistas {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 8px;
-  }
-
-  .conquista {
-    aspect-ratio: 1;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    background: #f3ecec;
-    filter: grayscale(1);
-    opacity: 0.35;
-    transition: all 0.4s cubic-bezier(.3,1.5,.5,1);
-    position: relative;
-    cursor: default;
-  }
-
-  .conquista.desbloqueada {
-    background: linear-gradient(135deg, var(--rosa-claro), var(--dourado));
-    filter: grayscale(0);
-    opacity: 1;
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(255,200,87,0.4);
-  }
-
-  .conquista.recem-desbloqueada {
-    animation: pop 0.5s cubic-bezier(.3,1.8,.4,1);
-  }
-
-  @keyframes pop {
-    0% { transform: scale(0.3) rotate(-15deg); }
-    60% { transform: scale(1.25) rotate(8deg); }
-    100% { transform: scale(1.05) rotate(0deg); }
-  }
-
-  .conquista::after {
-    content: attr(data-nome);
-    position: absolute;
-    bottom: 115%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--texto);
-    color: white;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 4px 8px;
-    border-radius: 8px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-  }
-
-  .conquista:hover::after {
-    opacity: 1;
-  }
-
-  /* --- toast --- */
-  .toast {
-    position: fixed;
-    top: 24px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-120%);
-    background: var(--branco);
-    border: 2px solid var(--dourado);
-    color: var(--texto);
-    padding: 12px 22px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 14px;
-    box-shadow: 0 10px 30px rgba(255,143,171,0.4);
-    z-index: 30;
-    transition: transform 0.5s cubic-bezier(.3,1.3,.4,1);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    white-space: nowrap;
-  }
-
-  .toast.mostrar {
-    transform: translateX(-50%) translateY(0);
-  }
-
-  .contador {
-    margin-top: 20px;
-    font-size: 12px;
-    color: var(--texto);
-    opacity: 0.55;
-  }
-
-  @media (max-width: 480px) {
-    h1 { font-size: 44px; }
-    .cartao { padding: 32px 20px; border-radius: 24px; }
-    .coracao-central { font-size: 52px; }
-    .subtitulo { font-size: 14px; }
-    .grade-conquistas { grid-template-columns: repeat(4, 1fr); }
-    .conquista { font-size: 17px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, .coracao-central, .cartao, body, .coracao-flutuante, .confete {
-      animation: none !important;
-    }
-  }
-</style>
+            button {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <div class="toast" id="toast">🏆 <span id="toastTexto"></span></div>
+    <div class="container">
 
-  <div class="cartao">
-    <span class="selo">recadinho especial</span>
-    <h1>eu gosto muito<br>da Clara</h1>
-    <p class="subtitulo">é isso mesmo, do fundo do coração 💗<br>toca no coração e ganha pontinhos de carinho</p>
+        <div class="coracao">❤️</div>
 
-    <div class="painel-nivel">
-      <div class="linha-nivel">
-        <span class="nome-nivel" id="nomeNivel">Admiradora</span>
-        <span class="xp-texto" id="xpTexto">0 / 10 xp</span>
-      </div>
-      <div class="barra-fundo">
-        <div class="barra-preenchimento" id="barraXp"></div>
-      </div>
+        <h1>Para você, Clara</h1>
+
+        <p class="texto">
+            Clara, eu queria conseguir colocar em palavras tudo o que eu sinto por você,
+            mas às vezes parece que nenhuma palavra é suficiente.
+        </p>
+
+        <p class="texto">
+            Esses últimos meses foram, sem dúvida, alguns dos meses mais felizes da minha vida.
+            Ter você ao meu lado tornou meus dias mais especiais, e cada momento com você
+            virou uma lembrança que eu quero guardar para sempre.
+        </p>
+
+        <p class="texto">
+            Quando eu penso no futuro, é você que eu consigo enxergar ao meu lado.
+            Eu consigo imaginar tantos momentos, tantos sonhos e tantas histórias que ainda
+            podemos viver juntos.
+        </p>
+
+        <p class="destaque">
+            Eu quero viver tudo isso com você. ❤️
+        </p>
+
+        <p class="texto">
+            E independente do que aconteça, eu quero que você saiba que nada vai ser maior
+            do que aquilo que sentimos. Vamos enfrentar tudo juntos, um dia de cada vez,
+            sempre lembrando do motivo que fez a gente chegar até aqui.
+        </p>
+
+        <p class="texto">
+            Você é uma pessoa incrível, magnífica e única. Eu admiro quem você é,
+            seu jeito, seu coração e tudo aquilo que faz você ser exatamente a Clara
+            que eu amo.
+        </p>
+
+        <button onclick="mostrarMensagem()">
+            Clique aqui ❤️
+        </button>
+
+        <div id="mensagem">
+            Eu te amo mais do que tudo, Clara.
+            <br><br>
+            E se eu pudesse escolher novamente, escolheria você
+            em todos os momentos. ❤️
+        </div>
+
+        <div class="assinatura">
+            Com todo o meu amor. ❤️
+        </div>
+
     </div>
 
-    <div style="position:relative; display:inline-block;">
-      <div class="coracao-central" id="coracao">💗</div>
-    </div>
-    <p class="dica">toque para mais carinho</p>
+    <script>
+        function mostrarMensagem() {
+            const mensagem = document.getElementById("mensagem");
 
-    <div class="mensagem-extra" id="mensagemExtra"></div>
+            mensagem.style.display = "block";
 
-    <p class="titulo-conquistas">conquistas</p>
-    <div class="grade-conquistas" id="gradeConquistas"></div>
+            for (let i = 0; i < 15; i++) {
+                criarCoracao();
+            }
+        }
 
-    <p class="contador" id="contador">0 coraçõezinhos enviados</p>
-  </div>
+        function criarCoracao() {
+            const coracao = document.createElement("div");
 
-<script>
-  // ---------- dados do jogo (fica só na memória, some se recarregar a página) ----------
-  const mensagens = [
-    "você é muito especial 🌸",
-    "isso não muda, viu? 💕",
-    "olha só quanto carinho 🥹",
-    "de verdade, muito mesmo ✨",
-    "a Clara merece o mundo 🌷",
-    "continua sendo assim, incrível 💗",
-    "cada clique é um carinho de verdade 🧸",
-    "combinamos que você é demais, né? 🎀"
-  ];
+            coracao.classList.add("coracao-flutuante");
+            coracao.innerHTML = "❤️";
 
-  const niveis = [
-    { nome: "Admiradora",        min: 0 },
-    { nome: "Apaixonada",        min: 10 },
-    { nome: "Coração Guerreiro", min: 25 },
-    { nome: "Fã Nº 1",           min: 45 },
-    { nome: "Melhor Amiga(o)",   min: 70 },
-    { nome: "Alma Gêmea",        min: 100 }
-  ];
+            coracao.style.left = Math.random() * 100 + "vw";
+            coracao.style.animationDuration = (3 + Math.random() * 3) + "s";
+            coracao.style.fontSize = (15 + Math.random() * 20) + "px";
 
-  const conquistasDef = [
-    { id: 'primeiro',  emoji: '🌱', nome: 'Primeiro toque',   meta: 1 },
-    { id: 'cinco',     emoji: '🌸', nome: '5 carinhos',       meta: 5 },
-    { id: 'dez',       emoji: '💞', nome: '10 carinhos',      meta: 10 },
-    { id: 'vinte',     emoji: '🎀', nome: '20 carinhos',      meta: 20 },
-    { id: 'trinta',    emoji: '🧸', nome: '30 carinhos',      meta: 30 },
-    { id: 'cinquenta', emoji: '👑', nome: 'Nível máximo',     meta: 50 }
-  ];
+            document.body.appendChild(coracao);
 
-  let pontos = 0;
-  let cliques = 0;
-  let nivelAtual = 0;
-  const conquistasDesbloqueadas = new Set();
-
-  const coracao = document.getElementById('coracao');
-  const mensagemExtra = document.getElementById('mensagemExtra');
-  const contadorEl = document.getElementById('contador');
-  const nomeNivelEl = document.getElementById('nomeNivel');
-  const xpTextoEl = document.getElementById('xpTexto');
-  const barraXpEl = document.getElementById('barraXp');
-  const gradeConquistasEl = document.getElementById('gradeConquistas');
-  const toastEl = document.getElementById('toast');
-  const toastTextoEl = document.getElementById('toastTexto');
-
-  // monta a grade de conquistas (bloqueadas no início)
-  conquistasDef.forEach(c => {
-    const div = document.createElement('div');
-    div.className = 'conquista';
-    div.id = 'conquista-' + c.id;
-    div.dataset.nome = c.nome;
-    div.textContent = '❔';
-    gradeConquistasEl.appendChild(div);
-  });
-
-  function nivelPorPontos(p) {
-    let idx = 0;
-    for (let i = 0; i < niveis.length; i++) {
-      if (p >= niveis[i].min) idx = i;
-    }
-    return idx;
-  }
-
-  function atualizarPainel() {
-    const idx = nivelPorPontos(pontos);
-    const atual = niveis[idx];
-    const proximo = niveis[idx + 1];
-
-    nomeNivelEl.textContent = atual.nome;
-
-    if (proximo) {
-      const faltamTotal = proximo.min - atual.min;
-      const progresso = pontos - atual.min;
-      const pct = Math.min(100, (progresso / faltamTotal) * 100);
-      barraXpEl.style.width = pct + '%';
-      xpTextoEl.textContent = pontos + ' / ' + proximo.min + ' xp';
-    } else {
-      barraXpEl.style.width = '100%';
-      xpTextoEl.textContent = pontos + ' xp · nível máximo!';
-    }
-
-    if (idx > nivelAtual) {
-      nivelAtual = idx;
-      mostrarToast('Subiu de nível: ' + atual.nome + '!');
-      explosaoConfete();
-    }
-  }
-
-  function checarConquistas() {
-    conquistasDef.forEach(c => {
-      if (!conquistasDesbloqueadas.has(c.id) && cliques >= c.meta) {
-        conquistasDesbloqueadas.add(c.id);
-        const el = document.getElementById('conquista-' + c.id);
-        el.textContent = c.emoji;
-        el.classList.add('desbloqueada', 'recem-desbloqueada');
-        setTimeout(() => el.classList.remove('recem-desbloqueada'), 500);
-        mostrarToast('Conquista: ' + c.nome);
-      }
-    });
-  }
-
-  let filaToast = [];
-  let toastAtivo = false;
-  function mostrarToast(texto) {
-    filaToast.push(texto);
-    processarFilaToast();
-  }
-  function processarFilaToast() {
-    if (toastAtivo || filaToast.length === 0) return;
-    toastAtivo = true;
-    const texto = filaToast.shift();
-    toastTextoEl.textContent = texto;
-    toastEl.classList.add('mostrar');
-    setTimeout(() => {
-      toastEl.classList.remove('mostrar');
-      setTimeout(() => {
-        toastAtivo = false;
-        processarFilaToast();
-      }, 400);
-    }, 1800);
-  }
-
-  coracao.addEventListener('click', (e) => {
-    cliques++;
-    const ganho = Math.floor(Math.random() * 3) + 1; // 1 a 3 pontos
-    pontos += ganho;
-
-    const msg = mensagens[Math.floor(Math.random() * mensagens.length)];
-    mensagemExtra.style.opacity = 0;
-    setTimeout(() => {
-      mensagemExtra.textContent = msg;
-      mensagemExtra.style.opacity = 1;
-    }, 150);
-
-    contadorEl.textContent = cliques === 1
-      ? "1 coraçãozinho enviado"
-      : cliques + " coraçõezinhos enviados";
-
-    mostrarPontosFlutuantes(ganho, e);
-    atualizarPainel();
-    checarConquistas();
-    criarCoracaoFlutuante();
-  });
-
-  function mostrarPontosFlutuantes(valor, evento) {
-    const el = document.createElement('div');
-    el.className = 'pontos-flutuante';
-    el.textContent = '+' + valor;
-    const rect = coracao.getBoundingClientRect();
-    el.style.left = (rect.left + rect.width / 2 - 10) + 'px';
-    el.style.top = (rect.top - 10) + 'px';
-    el.style.position = 'fixed';
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 1000);
-  }
-
-  function criarCoracaoFlutuante() {
-    const emojis = ['💗','💖','💕','✨','🌸'];
-    const el = document.createElement('div');
-    el.className = 'coracao-flutuante';
-    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    el.style.left = Math.random() * 100 + 'vw';
-    const duracao = 4 + Math.random() * 3;
-    el.style.animationDuration = duracao + 's';
-    el.style.fontSize = (18 + Math.random() * 18) + 'px';
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), duracao * 1000);
-  }
-
-  function explosaoConfete() {
-    const cores = ['🎀','✨','💛','🌟','💗'];
-    for (let i = 0; i < 24; i++) {
-      const el = document.createElement('div');
-      el.className = 'confete';
-      el.textContent = cores[Math.floor(Math.random() * cores.length)];
-      el.style.left = Math.random() * 100 + 'vw';
-      el.style.fontSize = (14 + Math.random() * 14) + 'px';
-      const duracao = 2 + Math.random() * 2;
-      el.style.animationDuration = duracao + 's';
-      el.style.animationDelay = (Math.random() * 0.3) + 's';
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), (duracao + 0.3) * 1000);
-    }
-  }
-
-  // ambientação inicial
-  setInterval(criarCoracaoFlutuante, 2200);
-  criarCoracaoFlutuante();
-  atualizarPainel();
-</script>
+            setTimeout(() => {
+                coracao.remove();
+            }, 6000);
+        }
+    </script>
 
 </body>
 </html>
